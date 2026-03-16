@@ -240,6 +240,15 @@ header h1 {
   box-shadow: var(--shadow-hover);
 }
 
+.item-chip.unsorted {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-bg);
+}
+
+.item-chip.fully-sorted {
+  opacity: 0.45;
+}
+
 .item-chip.assigned {
   cursor: default;
   touch-action: auto;

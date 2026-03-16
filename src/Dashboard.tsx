@@ -86,17 +86,26 @@ export default function Dashboard() {
       <div className="item-pool">
         <h2>Projects</h2>
         <div className="pool-items">
-          {items.map((item) => (
-            <DraggableChip
-              key={item._id}
-              item={item}
-              onDelete={() => {
-                if (confirm(`Delete "${item.name}"?`)) {
-                  removeItem({ id: item._id });
-                }
-              }}
-            />
-          ))}
+          {items.map((item) => {
+            const sortedCount = new Set(
+              allAssignments
+                .filter((a) => a.itemId === item._id)
+                .map((a) => a.questionId)
+            ).size;
+            return (
+              <DraggableChip
+                key={item._id}
+                item={item}
+                sortedCount={sortedCount}
+                totalQuestions={questions.length}
+                onDelete={() => {
+                  if (confirm(`Delete "${item.name}"?`)) {
+                    removeItem({ id: item._id });
+                  }
+                }}
+              />
+            );
+          })}
           {items.length === 0 && (
             <span className="empty-hint">No projects yet</span>
           )}
@@ -208,12 +217,20 @@ export default function Dashboard() {
 function DraggableChip({
   item,
   onDelete,
+  sortedCount = 0,
+  totalQuestions = 0,
 }: {
   item: Doc<"items">;
   onDelete: () => void;
+  sortedCount?: number;
+  totalQuestions?: number;
 }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({ id: item._id });
+
+  const fullySorted = totalQuestions > 0 && sortedCount >= totalQuestions;
+  const unsorted = sortedCount === 0;
+  const chipClass = `item-chip${unsorted ? " unsorted" : ""}${fullySorted ? " fully-sorted" : ""}`;
 
   const style: React.CSSProperties = transform
     ? {
@@ -225,7 +242,7 @@ function DraggableChip({
   return (
     <div
       ref={setNodeRef}
-      className="item-chip"
+      className={chipClass}
       style={style}
       {...listeners}
       {...attributes}
