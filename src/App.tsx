@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Dashboard from "./Dashboard";
 
-const CORRECT_PASSWORD = "GTCE in 2026";
+const CORRECT_PASSWORD = "ianhsiao";
 
 export default function App() {
   const [authenticated, setAuthenticated] = useState(() => {
