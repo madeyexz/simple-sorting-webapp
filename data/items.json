@@ -1,0 +1,79 @@
+[
+  {
+    "id": "6g",
+    "name": "6G",
+    "assignments": {
+      "q1": "genuine curiosity"
+    }
+  },
+  {
+    "id": "iot",
+    "name": "IOT",
+    "assignments": {
+      "q1": "genuine curiosity"
+    }
+  },
+  {
+    "id": "llm",
+    "name": "LLM",
+    "assignments": {
+      "q1": "genuine curiosity"
+    }
+  },
+  {
+    "id": "moonlake",
+    "name": "moonlake's data farm",
+    "assignments": {
+      "q1": "interesting"
+    }
+  },
+  {
+    "id": "spacetimedb",
+    "name": "spacetimeDB",
+    "assignments": {
+      "q1": "interesting"
+    }
+  },
+  {
+    "id": "factoryai",
+    "name": "factory ai",
+    "assignments": {
+      "q1": "interesting"
+    }
+  },
+  {
+    "id": "lunabill",
+    "name": "LunaBill",
+    "assignments": {
+      "q1": "ok-ish"
+    }
+  },
+  {
+    "id": "cmux",
+    "name": "cmux",
+    "assignments": {
+      "q1": "ok-ish"
+    }
+  },
+  {
+    "id": "insforge",
+    "name": "insforge",
+    "assignments": {
+      "q1": "ok-ish"
+    }
+  },
+  {
+    "id": "centriai",
+    "name": "centriai.com",
+    "assignments": {
+      "q1": "ok-ish"
+    }
+  },
+  {
+    "id": "joinmap",
+    "name": "join-a-project-on-a-map",
+    "assignments": {
+      "q1": "boring"
+    }
+  }
+]

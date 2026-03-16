@@ -1,0 +1,35 @@
+[
+  {
+    "id": "q1",
+    "text": "Did I feel genuine curiosity, or was I performing interest?",
+    "categories": [
+      "genuine curiosity",
+      "interesting",
+      "ok-ish",
+      "boring"
+    ]
+  },
+  {
+    "id": "q2",
+    "text": "Could I imagine spending a boring Tuesday afternoon on this?",
+    "categories": [
+      "no"
+    ]
+  },
+  {
+    "id": "q3",
+    "text": "Does this problem get more important over time, or is it a point solution?",
+    "categories": [
+      "gets more important",
+      "point solution"
+    ]
+  },
+  {
+    "id": "q4",
+    "text": "Does it connect to my existing intuitions about augmentation and human capability?",
+    "categories": [
+      "yes",
+      "no"
+    ]
+  }
+]
