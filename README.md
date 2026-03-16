@@ -1,33 +1,47 @@
-# Simple Sorting Webapp
+# Sorting Dashboard
 
-A drag-and-drop dashboard for sorting items into categories across multiple questions. Built with vanilla JS and Express.
+A real-time drag-and-drop dashboard for sorting projects/companies into categories across multiple questions. Built with React, Convex, and @dnd-kit.
+
+**Live:** https://sorting-dashboard.vercel.app
 
 ## How it works
 
-1. **Add items** — things you want to sort (supports comma-separated batch add)
-2. **Add questions** — each question has its own set of categories
-3. **Drag & drop** items into categories for each question
-4. Everything is persisted to JSON files on disk
+1. **Add projects** — companies or ideas you want to evaluate (comma-separated for batch)
+2. **Add questions** — each question has its own categories (e.g., "genuine curiosity, interesting, ok-ish, boring")
+3. **Drag & drop** projects from the sticky pool into categories
+4. **Real-time sync** — changes appear instantly across all devices
 
-## Setup
+Unsorted projects are highlighted with a blue accent. Fully sorted ones fade out.
+
+## Tech stack
+
+- **Frontend:** React 19 + Vite + TypeScript
+- **Backend:** Convex (real-time database)
+- **DnD:** @dnd-kit/core (touch + mouse)
+- **Hosting:** Vercel (frontend) + Convex Cloud (backend)
+- **Auth:** Simple password gate (client-side)
+
+## Development
 
 ```bash
-npm install
-node server.js
+# Terminal 1: Convex dev server
+npx convex dev
+
+# Terminal 2: Vite dev server
+npm run dev
 ```
 
-Open http://localhost:3777
+## Seed data
 
-## API
+```bash
+npx convex run seed:run
+```
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/questions` | List all questions |
-| POST | `/api/questions` | Create a question |
-| PUT | `/api/questions/:id` | Update a question |
-| DELETE | `/api/questions/:id` | Delete a question |
-| GET | `/api/items` | List all items |
-| POST | `/api/items` | Create an item |
-| PUT | `/api/items/:id` | Update an item |
-| DELETE | `/api/items/:id` | Delete an item |
-| POST | `/api/assign` | Assign an item to a category |
+## Deploy
+
+```bash
+npx convex deploy          # push functions to prod
+vercel deploy --prod        # deploy frontend
+```
+
+Make sure `VITE_CONVEX_URL` is set in Vercel project settings pointing to your production Convex deployment.
